@@ -10,9 +10,7 @@ Open this folder as an Obsidian vault for graph view, templates, and search.
 
 | Folder | What goes here | Who reads it |
 |--------|---------------|--------------|
-| `inbox/` | Raw input — voice notes, ideas, bugs, feedback | You |
-| `explore/` | Research, comparisons, digging into options | You |
-| `blueprints/` | Full feature plans before chopping into tasks | You + CC on demand |
+| `notes/` | Capture pipeline — raw input, exploration, feature plans (slice by `stage:` frontmatter) | You |
 | `tasks/` | Small, self-contained work for Claude Code | CC (one file per session) |
 | `docs/` | Reference material — schemas, API, glossary, onboarding | CC on demand |
 | `decisions/` | Why we built it that way | CC on demand |
@@ -25,7 +23,7 @@ Open this folder as an Obsidian vault for graph view, templates, and search.
 ## Flow
 
 ```
-inbox → explore → blueprint → tasks → done
+notes (raw → exploring → blueprinted) → tasks → done
 ```
 
 ## Fire categories
@@ -112,8 +110,7 @@ PER SESSION:      .apsolut/tasks/next/001-whatever.md (self-contained)
 ON DEMAND:        .apsolut/decisions/003.md (only if task says "see decisions/003")
 ON DEMAND:        .apsolut/services/002.md (only if task touches that API)
 ON DEMAND:        .apsolut/rules/gdpr.md (only if task touches user data)
-NEVER:            .apsolut/inbox/ (raw, messy — CC has no business here)
-NEVER:            .apsolut/explore/ (your research — CC doesn't need it)
+NEVER:            .apsolut/notes/ (raw + exploration + draft plans — CC has no business here)
 ```
 
 ### CLAUDE.md stays lean
@@ -136,7 +133,7 @@ What belongs in CLAUDE.md:
 - Linter handles code style — don't enforce style in prompts
 
 # Don'ts
-- Don't read .apsolut/inbox/ or .apsolut/explore/
+- Don't read .apsolut/notes/
 - Don't preload files — fetch only what the current task needs
 - Don't put screenshots or binaries in .apsolut/ (use artifacts/)
 ```
