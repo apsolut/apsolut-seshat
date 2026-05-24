@@ -1,12 +1,27 @@
 # .apsolut/
 
-Project brain. Lives next to `.claude/`.
+Project brain. Lives next to `.claude/`. Works on weekend projects, scales to teams.
 
 Open this folder as an Obsidian vault for graph view, templates, and search.
 
 > Standalone — works on its own. Optional pairing: [apsolut-cortex](https://github.com/apsolut/apsolut-cortex) for Claude's cross-project memory.
 
-## Folders
+## Pick a size
+
+The vault scales with the project. Start small, add folders as content grows.
+
+| Profile      | What you get                                                                                                                                  | When                                                              |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+| **bare**     | 3 files at `.apsolut/` root: `TASKS.md`, `DECISIONS.md`, `FIRES.md` — no folders                                                              | Weekend project, < 10 entries total                                |
+| **minimal**  | folders: `tasks/`, `decisions/`, `fires/`                                                                                                      | Promote from bare when any one file > ~10 entries                  |
+| **standard** *(default)* | + `notes/`, `docs/`, `services/`, `ops/`                                                                                          | Most active projects                                               |
+| **full**     | + split `notes/` → `inbox/` + `explore/` + `blueprints/`; split `ops/` → `guides/` + `runbooks/` + `rules/`; add inbox subfolders              | Team project with planning ceremonies + ongoing ops                |
+
+Promote bare → minimal → standard → full as the project grows. Splitting is mechanical: take the one file, slice by frontmatter, write the slices into folders.
+
+The folder set shown below is the **standard** profile.
+
+## Folders (standard)
 
 | Folder | What goes here | Who reads it |
 |--------|---------------|--------------|
@@ -140,7 +155,7 @@ What does NOT belong in CLAUDE.md:
 - Code style rules (put in ESLint/Prettier config)
 - Full API documentation (put in `.apsolut/docs/`)
 - Decision history (put in `.apsolut/decisions/`)
-- Onboarding guides (put in `.apsolut/guides/`)
+- Onboarding guides (put in `.apsolut/ops/` with `kind: howto`)
 
 ### Context budget per session
 
