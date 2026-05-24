@@ -14,9 +14,7 @@ Open this folder as an Obsidian vault for graph view, templates, and search.
 | `tasks/` | Small, self-contained work for Claude Code | CC (one file per session) |
 | `docs/` | Reference material — schemas, API, glossary, onboarding | CC on demand |
 | `decisions/` | Why we built it that way | CC on demand |
-| `guides/` | How to do things — deploy, debug, setup | CC on demand |
-| `runbooks/` | Ops recovery — when X breaks, do Y | CC + on-call when something is broken |
-| `rules/` | Legal, GDPR, TOS — hard constraints | CC before touching user data |
+| `ops/` | How-to + recovery + constraints (slice by `kind:` frontmatter) | CC before deploy/debug, on-call when broken, before touching user data |
 | `services/` | External APIs — limits, costs, TOS | CC before adding API calls |
 | `fires/` | What broke and why — see categories below | CC to avoid repeating mistakes |
 
@@ -109,7 +107,7 @@ ALWAYS loaded:    .claude/CLAUDE.md (< 60 lines, pointers only)
 PER SESSION:      .apsolut/tasks/next/001-whatever.md (self-contained)
 ON DEMAND:        .apsolut/decisions/003.md (only if task says "see decisions/003")
 ON DEMAND:        .apsolut/services/002.md (only if task touches that API)
-ON DEMAND:        .apsolut/rules/gdpr.md (only if task touches user data)
+ON DEMAND:        .apsolut/ops/gdpr.md (only if task touches user data — kind: constraint)
 NEVER:            .apsolut/notes/ (raw + exploration + draft plans — CC has no business here)
 ```
 
@@ -123,9 +121,8 @@ What belongs in CLAUDE.md:
 # Pointers
 - Current tasks: .apsolut/tasks/next/
 - Decisions: .apsolut/decisions/
-- Rules: .apsolut/rules/ (read before touching user data or external APIs)
 - Services: .apsolut/services/ (read before adding API calls)
-- Guides: .apsolut/guides/ (read before deploy, debug, or setup)
+- Ops: .apsolut/ops/ (read before deploy/debug/setup, when broken, or before touching user data — slice by `kind:`)
 - Fires: .apsolut/fires/ (read before changing areas that broke before)
 
 # Commands
