@@ -18,9 +18,9 @@ Install as a Claude Code plugin:
 Then in any project:
 
 ```bash
-/apsolut-init           # picks a profile interactively
-/apsolut-init bare      # 3 files at .apsolut/ root, no folders
-/apsolut-init standard  # 6 folders, the default for active projects
+/apsolut-seshat           # picks a profile interactively
+/apsolut-seshat bare      # 3 files at .apsolut/ root, no folders
+/apsolut-seshat standard  # 6 folders, the default for active projects
 ```
 
 `/maintain` scans and fixes broken `[[wiki-links]]` across the vault.

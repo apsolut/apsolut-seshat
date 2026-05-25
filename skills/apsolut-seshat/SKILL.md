@@ -1,18 +1,18 @@
 ---
-name: apsolut-init
+name: apsolut-seshat
 description: Scaffold the .apsolut/ vault into the current project. Pick a profile (bare/minimal/standard/full), create the files + folders + CLAUDE.md + artifacts/. Idempotent — audits and reports gaps if .apsolut/ already exists.
 argument-hint: [bare|minimal|standard|full]
 ---
 
-# apsolut-init
+# apsolut-seshat
 
-> Part of [apsolut-scaffolding](https://github.com/apsolut/apsolut-scaffolding). Source of truth lives in that repo.
+> Part of [apsolut-seshat](https://github.com/apsolut/apsolut-seshat). Source of truth lives in that repo.
 
 Scaffold the `.apsolut/` vault for any project, sized by profile.
 
 ## Trigger
 
-User invokes `/apsolut-init` (optionally with a profile: `/apsolut-init bare`, `minimal`, `standard`, `full`).
+User invokes `/apsolut-seshat` (optionally with a profile: `/apsolut-seshat bare`, `minimal`, `standard`, `full`).
 
 ## Profiles
 
@@ -121,7 +121,7 @@ If exists, skip.
 ### Step 8 — Summary
 
 ```
-## apsolut-init complete
+## apsolut-seshat complete
 
 Profile: <bare|minimal|standard|full>
 
@@ -135,7 +135,7 @@ Profile: <bare|minimal|standard|full>
 - bare:     append your first task in .apsolut/TASKS.md
 - minimal+: add your first task in .apsolut/tasks/next/001-<name>.md
 - Log near-misses in fires — they're tomorrow's outages
-- Promote to next profile when files grow: `/apsolut-init <next-profile>`
+- Promote to next profile when files grow: `/apsolut-seshat <next-profile>`
 ```
 
 ## Audit mode (when `.apsolut/` already exists)
