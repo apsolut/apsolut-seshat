@@ -1,6 +1,6 @@
 # Profile manifests
 
-Canonical layout per profile. Source of truth for what `apsolut-init` creates.
+Canonical layout per profile. Source of truth for what `/apsolut-seshat` creates.
 
 ## bare
 
