@@ -10,7 +10,8 @@ For weekend projects, < 10 entries total. No folders.
 .apsolut/
 ├── TASKS.md
 ├── DECISIONS.md
-└── FIRES.md
+├── FIRES.md
+└── screenshots/.gitkeep
 ```
 
 Promote to **minimal** when any one file crosses ~10 entries: split by section into a folder with one file per entry.
@@ -26,7 +27,8 @@ Folders, but only the essentials. Three high-frequency loops.
 │   ├── doing/000-template.md
 │   └── done/000-template.md
 ├── decisions/000-template.md
-└── fires/000-template.md
+├── fires/000-template.md
+└── screenshots/.gitkeep
 ```
 
 ## standard *(default)*
@@ -44,7 +46,8 @@ Most active projects. Adds capture pipeline + reference + ops.
 ├── docs/000-template.md
 ├── services/000-template.md
 ├── ops/000-template.md         # howto + recovery + constraint (slice by `kind:`)
-└── fires/000-template.md
+├── fires/000-template.md
+└── screenshots/.gitkeep        # drop bug screenshots here, reference inline
 ```
 
 ## full
@@ -73,19 +76,22 @@ For team projects with planning ceremonies and ongoing ops. Splits the merged fo
 ├── guides/000-template.md
 ├── runbooks/000-template.md
 ├── rules/000-template.md
-└── fires/000-template.md
+├── fires/000-template.md
+└── screenshots/.gitkeep
 ```
 
 ## All profiles also create
 
 ```
 project/
-├── .apsolut/       (see above)
+├── .apsolut/       (see above — always includes screenshots/)
 ├── artifacts/      (empty; populated on demand)
 ├── README.md       (if missing)
 ├── CLAUDE.md       (if missing)
 └── .gitignore      (created or appended)
 ```
+
+`.apsolut/screenshots/` is the one binary exception inside the otherwise markdown-only `.apsolut/` vault. Folder is tracked, contents are gitignored — drop bug screenshots there and reference them inline in conversation.
 
 ## Promotion path
 

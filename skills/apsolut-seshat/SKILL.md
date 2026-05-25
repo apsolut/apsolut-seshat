@@ -71,13 +71,21 @@ Confirm with user. Then ask:
 - Copy `references/templates/bare-tasks.md` → `.apsolut/TASKS.md`
 - Copy `references/templates/bare-decisions.md` → `.apsolut/DECISIONS.md`
 - Copy `references/templates/bare-fires.md` → `.apsolut/FIRES.md`
-- No subdirectories.
+- Create `.apsolut/screenshots/.gitkeep` (see [Step 3b](#step-3b--screenshots-folder-all-profiles))
+- No other subdirectories.
 
 **minimal / standard / full profiles:**
 - Create folders per `references/profiles.md`
 - For `tasks/`, create three subfolders: `next/`, `doing/`, `done/` — each gets `000-template.md` from `references/templates/tasks-template.md`
 - For each other leaf folder, copy `references/templates/<folder>-template.md` → `<folder>/000-template.md`
+- Create `.apsolut/screenshots/.gitkeep` (see [Step 3b](#step-3b--screenshots-folder-all-profiles))
 - **full only:** create the 6 inbox subfolders (bookmarks, bugs, feedback, ideas, meetings, voice) — each gets a `.gitkeep` and re-uses `inbox-template.md`
+
+### Step 3b — `screenshots/` folder (all profiles)
+
+Every profile gets `.apsolut/screenshots/` with a `.gitkeep`. This is where the user drops bug screenshots and other images to reference inline in conversation (e.g. "look at .apsolut/screenshots/login-broken.png").
+
+Folder is tracked in git, contents are not — see [Step 5](#step-5--update-gitignore).
 
 ### Step 4 — Create `artifacts/` at project root
 
@@ -100,9 +108,13 @@ If `.gitignore` doesn't exist, create it. Append (if not already present):
 # apsolut: scratch binaries — keep history-bearing ones, ignore the ephemeral
 artifacts/tasks/
 artifacts/inbox/
+
+# apsolut: keep the screenshots folder, ignore the screenshots themselves
+.apsolut/screenshots/*
+!.apsolut/screenshots/.gitkeep
 ```
 
-`artifacts/fires/`, `artifacts/decisions/`, `artifacts/ops/` stay in git — they document history.
+`artifacts/fires/`, `artifacts/decisions/`, `artifacts/ops/` stay in git — they document history. Screenshots are ephemeral references — if a specific one matters long-term, force-add it (e.g. into a fire entry) with `git add -f`.
 
 See `references/gitignore-snippet.md` for details.
 
