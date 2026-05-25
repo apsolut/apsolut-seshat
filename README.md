@@ -1,10 +1,31 @@
-# .apsolut/
+# apsolut-seshat
 
-Project brain. Lives next to `.claude/`. Works on weekend projects, scales to teams.
+The `.apsolut/` convention — a markdown vault for project notes, decisions, ops, and fires.
+Named for the Egyptian goddess of records, measurement, and architecture.
 
-Open this folder as an Obsidian vault for graph view, templates, and search.
+Works on weekend projects, scales to teams.
 
 > Standalone — works on its own. Optional pairing: [apsolut-cortex](https://github.com/apsolut/apsolut-cortex) for Claude's cross-project memory.
+
+## Get started
+
+Install as a Claude Code plugin:
+
+```bash
+/plugin install apsolut-seshat@apsolut/apsolut-seshat
+```
+
+Then in any project:
+
+```bash
+/apsolut-init           # picks a profile interactively
+/apsolut-init bare      # 3 files at .apsolut/ root, no folders
+/apsolut-init standard  # 6 folders, the default for active projects
+```
+
+`/maintain` scans and fixes broken `[[wiki-links]]` across the vault.
+
+Open `.apsolut/` as an Obsidian vault for graph view, templates, and search.
 
 ## Pick a size
 

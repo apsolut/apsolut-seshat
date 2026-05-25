@@ -1,0 +1,19 @@
+{
+  "name": "apsolut-seshat",
+  "version": "0.1.0",
+  "description": "The .apsolut/ convention — a markdown vault for project notes, decisions, ops, and fires. Works on weekend projects, scales to teams.",
+  "author": {
+    "name": "apsolut"
+  },
+  "repository": "https://github.com/apsolut/apsolut-seshat",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "vault",
+    "convention",
+    "scaffolding",
+    "obsidian",
+    "notes",
+    "decisions"
+  ]
+}

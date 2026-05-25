@@ -1,0 +1,46 @@
+---
+id: notes/000
+date:
+tags:
+stage: raw | exploring | blueprinted
+type: idea | bug | feedback | bookmark | meeting | voice | research | plan
+status: active | parked | promoted | dropped
+from:
+---
+# [one line — what came in or what you're thinking about]
+
+## raw (capture-first, no formatting needed)
+
+[paste the dump — voice transcript, idea, link, meeting notes, whatever]
+
+## exploring (fill in if stage advances)
+
+[options, findings, comparisons — fill in as you investigate]
+
+### option A: [name]
+- pros / cons / cost
+
+### option B: [name]
+- pros / cons / cost
+
+## blueprinted (fill in if stage advances)
+
+[turn into a feature plan with steps + tasks list]
+
+- problem: [one line]
+- how: [steps]
+- tasks: [[tasks/next/]]
+- done when: [criteria]
+
+## next
+
+- promote to: [[tasks/next/]] | [[decisions/]] | park | drop
+- why: [one line]
+
+<!--
+Stage progression: raw → exploring → blueprinted → tasks/
+
+raw         → capture without thinking — voice memo, idea, bug report, link
+exploring   → researching options, comparing, doing spikes
+blueprinted → committed to building it; broken into tasks
+-->
