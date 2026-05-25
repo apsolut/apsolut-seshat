@@ -11,7 +11,8 @@ For weekend projects, < 10 entries total. No folders.
 ├── TASKS.md
 ├── DECISIONS.md
 ├── FIRES.md
-└── screenshots/.gitkeep
+├── screenshots/.gitkeep
+└── files/.gitkeep
 ```
 
 Promote to **minimal** when any one file crosses ~10 entries: split by section into a folder with one file per entry.
@@ -28,7 +29,8 @@ Folders, but only the essentials. Three high-frequency loops.
 │   └── done/000-template.md
 ├── decisions/000-template.md
 ├── fires/000-template.md
-└── screenshots/.gitkeep
+├── screenshots/.gitkeep
+└── files/.gitkeep
 ```
 
 ## standard *(default)*
@@ -47,7 +49,8 @@ Most active projects. Adds capture pipeline + reference + ops.
 ├── services/000-template.md
 ├── ops/000-template.md         # howto + recovery + constraint (slice by `kind:`)
 ├── fires/000-template.md
-└── screenshots/.gitkeep        # drop bug screenshots here, reference inline
+├── screenshots/.gitkeep        # drop bug screenshots here, reference inline
+└── files/.gitkeep              # PDFs, audio, exports — user adds subfolders on demand
 ```
 
 ## full
@@ -77,21 +80,26 @@ For team projects with planning ceremonies and ongoing ops. Splits the merged fo
 ├── runbooks/000-template.md
 ├── rules/000-template.md
 ├── fires/000-template.md
-└── screenshots/.gitkeep
+├── screenshots/.gitkeep
+└── files/.gitkeep
 ```
 
 ## All profiles also create
 
 ```
 project/
-├── .apsolut/       (see above — always includes screenshots/)
-├── artifacts/      (empty; populated on demand)
+├── .apsolut/       (see above — always includes screenshots/ and files/)
 ├── README.md       (if missing)
 ├── CLAUDE.md       (if missing)
 └── .gitignore      (created or appended)
 ```
 
-`.apsolut/screenshots/` is the one binary exception inside the otherwise markdown-only `.apsolut/` vault. Folder is tracked, contents are gitignored — drop bug screenshots there and reference them inline in conversation.
+`.apsolut/screenshots/` and `.apsolut/files/` are the binary exceptions inside the otherwise markdown-only `.apsolut/` vault:
+
+- **`screenshots/`** — hot path. Drop bug/UI screenshots, reference them inline in conversation.
+- **`files/`** — cold storage. PDFs, audio, exports, anything else. User adds subfolders (`pdfs/`, `docs/`, `audio/`) on demand.
+
+Both folders are tracked in git; contents are gitignored. `git add -f` the keepers. **No top-level `artifacts/` is created** — that older convention was folded into `.apsolut/files/`.
 
 ## Promotion path
 

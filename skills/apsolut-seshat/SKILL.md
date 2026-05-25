@@ -71,50 +71,42 @@ Confirm with user. Then ask:
 - Copy `references/templates/bare-tasks.md` → `.apsolut/TASKS.md`
 - Copy `references/templates/bare-decisions.md` → `.apsolut/DECISIONS.md`
 - Copy `references/templates/bare-fires.md` → `.apsolut/FIRES.md`
-- Create `.apsolut/screenshots/.gitkeep` (see [Step 3b](#step-3b--screenshots-folder-all-profiles))
+- Create `.apsolut/screenshots/.gitkeep` and `.apsolut/files/.gitkeep` (see [Step 3b](#step-3b--binary-drop-zones-all-profiles))
 - No other subdirectories.
 
 **minimal / standard / full profiles:**
 - Create folders per `references/profiles.md`
 - For `tasks/`, create three subfolders: `next/`, `doing/`, `done/` — each gets `000-template.md` from `references/templates/tasks-template.md`
 - For each other leaf folder, copy `references/templates/<folder>-template.md` → `<folder>/000-template.md`
-- Create `.apsolut/screenshots/.gitkeep` (see [Step 3b](#step-3b--screenshots-folder-all-profiles))
+- Create `.apsolut/screenshots/.gitkeep` and `.apsolut/files/.gitkeep` (see [Step 3b](#step-3b--binary-drop-zones-all-profiles))
 - **full only:** create the 6 inbox subfolders (bookmarks, bugs, feedback, ideas, meetings, voice) — each gets a `.gitkeep` and re-uses `inbox-template.md`
 
-### Step 3b — `screenshots/` folder (all profiles)
+### Step 3b — Binary drop zones (all profiles)
 
-Every profile gets `.apsolut/screenshots/` with a `.gitkeep`. This is where the user drops bug screenshots and other images to reference inline in conversation (e.g. "look at .apsolut/screenshots/login-broken.png").
+Every profile gets two binary drop zones inside `.apsolut/`:
 
-Folder is tracked in git, contents are not — see [Step 5](#step-5--update-gitignore).
+- **`screenshots/`** — hot path. User drops bug/UI screenshots and references them inline in conversation (e.g. "look at .apsolut/screenshots/login-broken.png").
+- **`files/`** — cold storage. PDFs, audio, exports, anything else binary. No preset subfolders — user creates `pdfs/`, `docs/`, `audio/`, etc. on demand.
 
-### Step 4 — Create `artifacts/` at project root
+Both folders are tracked in git via `.gitkeep`; contents are gitignored — see [Step 5](#step-5--update-gitignore). This is the one exception to the "`.apsolut/` is markdown only" rule, and it replaces the older top-level `artifacts/` folder.
 
-Sibling to `.apsolut/`, not inside it. For screenshots, PDFs, audio, exports.
+### Step 4 — (removed)
 
-```
-project/
-├── .apsolut/      # markdown only
-├── artifacts/     # binaries
-└── ...
-```
-
-Don't pre-create subfolders. They appear on demand.
+The old top-level `project/artifacts/` folder is no longer created. Binaries live inside `.apsolut/` (see Step 3b). If audit mode detects a legacy `project/artifacts/`, tell the user it still works but suggest moving its contents into `.apsolut/files/` (don't auto-move — they may have tooling that points at the old path).
 
 ### Step 5 — Update `.gitignore`
 
 If `.gitignore` doesn't exist, create it. Append (if not already present):
 
 ```
-# apsolut: scratch binaries — keep history-bearing ones, ignore the ephemeral
-artifacts/tasks/
-artifacts/inbox/
-
-# apsolut: keep the screenshots folder, ignore the screenshots themselves
+# apsolut: keep the drop-zone folders, ignore their contents
 .apsolut/screenshots/*
 !.apsolut/screenshots/.gitkeep
+.apsolut/files/*
+!.apsolut/files/.gitkeep
 ```
 
-`artifacts/fires/`, `artifacts/decisions/`, `artifacts/ops/` stay in git — they document history. Screenshots are ephemeral references — if a specific one matters long-term, force-add it (e.g. into a fire entry) with `git add -f`.
+Both drop zones are ephemeral by default. If a specific screenshot or file matters long-term (e.g. evidence for a fire entry, a signed contract PDF), force-add it with `git add -f`.
 
 See `references/gitignore-snippet.md` for details.
 
@@ -157,6 +149,8 @@ Compare existing layout against the chosen profile. Report:
 - Missing for this profile (offer to add)
 - Present but not in this profile (likely from a richer profile — leave them)
 - Missing `000-template.md` in any present folder (offer to add)
+- Missing `.apsolut/screenshots/` or `.apsolut/files/` (offer to add — these are required in all profiles now)
+- Legacy `project/artifacts/` at project root (note: convention moved binaries to `.apsolut/files/`. Suggest moving contents — don't auto-move, may break tooling that points at the old path)
 
 Ask user before adding. **Never delete.**
 

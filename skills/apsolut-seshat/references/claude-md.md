@@ -12,6 +12,7 @@
 - Ops: `.apsolut/ops/` — read before deploy/debug/setup, when broken, or before touching user data (slice by `kind:`)
 - Fires: `.apsolut/fires/` (or `.apsolut/FIRES.md`) — read before changing areas that broke before
 - Screenshots: `.apsolut/screenshots/` — user drops bug/UI screenshots here and references them inline (e.g. "see .apsolut/screenshots/login-broken.png"). Folder tracked, contents gitignored.
+- Files: `.apsolut/files/` — cold storage for PDFs, audio, exports, any other binary. User may add subfolders (`pdfs/`, `docs/`, `audio/`). Folder tracked, contents gitignored.
 
 ## Commands
 
@@ -25,4 +26,4 @@ Linter handles code style — don't enforce style in prompts.
 
 - Don't read `.apsolut/notes/` — raw + exploration + draft plans, not for CC
 - Don't preload files — fetch only what the current task needs
-- Don't put binaries (PDFs, audio, exports) in `.apsolut/` — use `../artifacts/` at project root. The one exception is `.apsolut/screenshots/`, which is the user's drop zone for inline image references.
+- Don't sprinkle binaries across `.apsolut/` markdown folders — they belong in `.apsolut/screenshots/` (hot path) or `.apsolut/files/` (cold storage)

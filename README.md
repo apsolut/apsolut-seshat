@@ -81,7 +81,10 @@ Near misses are the most valuable — free lessons without the damage.
 
 - Files use `001-descriptive-name.md` numbering (per folder)
 - Each folder has `000-template.md` — read it before creating new entries
-- Markdown only — binaries (PDFs, audio, exports) go in `artifacts/`. The one exception is `.apsolut/screenshots/`, a drop zone for bug/UI screenshots referenced inline in conversation (folder tracked, contents gitignored).
+- Markdown only — except two drop zones inside `.apsolut/`:
+  - `.apsolut/screenshots/` — hot path. Drop bug/UI screenshots, reference them inline in conversation
+  - `.apsolut/files/` — cold storage. PDFs, audio, exports — add subfolders (`pdfs/`, `docs/`, `audio/`) on demand
+  - Both folders are tracked in git; contents are gitignored. `git add -f` the keepers.
 - This vault is for things you write on purpose; if you also use apsolut-cortex, that's where Claude's auto-learned memory lives
 - Use `[[wiki-links]]` for all cross-references (Obsidian graph + CC compatible)
 - Use `tags:` with `#hashtags` for grouping related files across folders
@@ -168,7 +171,7 @@ What belongs in CLAUDE.md:
 # Don'ts
 - Don't read .apsolut/notes/
 - Don't preload files — fetch only what the current task needs
-- Don't put binaries (PDFs, audio, exports) in .apsolut/ (use artifacts/) — except .apsolut/screenshots/, the user's inline-reference drop zone
+- Don't sprinkle binaries across .apsolut/ markdown folders — they belong in .apsolut/screenshots/ (hot) or .apsolut/files/ (cold)
 ```
 
 What does NOT belong in CLAUDE.md:

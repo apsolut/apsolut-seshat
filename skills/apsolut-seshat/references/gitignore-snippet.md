@@ -1,24 +1,25 @@
 # Lines to append to project `.gitignore`
 
 ```gitignore
-# apsolut: scratch binaries — keep history-bearing ones, ignore the ephemeral
-artifacts/tasks/
-artifacts/inbox/
-
-# apsolut: keep the screenshots folder, ignore the screenshots themselves
+# apsolut: keep the drop-zone folders, ignore their contents
 .apsolut/screenshots/*
 !.apsolut/screenshots/.gitkeep
+.apsolut/files/*
+!.apsolut/files/.gitkeep
 ```
 
 ## What to keep in git vs ignore
 
 | Path                       | Status     | Why                                                       |
 |----------------------------|------------|-----------------------------------------------------------|
-| `artifacts/fires/`         | keep       | documents what broken UI/data looked like                 |
-| `artifacts/decisions/`     | keep       | architecture diagrams, design exports                     |
-| `artifacts/runbooks/`      | keep       | recovery screenshots, dashboards                          |
-| `artifacts/tasks/`         | ignore     | throwaway scratch from CC sessions                        |
-| `artifacts/inbox/`         | ignore     | raw captures (voice, bookmarks)                           |
 | `.apsolut/` (markdown)     | keep all   | markdown only, intentionally curated                      |
 | `.apsolut/screenshots/`    | keep dir   | tracked folder so collaborators see it exists             |
-| `.apsolut/screenshots/*`   | ignore     | ephemeral bug screenshots — `git add -f` the ones worth keeping (e.g. into a fire entry) |
+| `.apsolut/screenshots/*`   | ignore     | ephemeral bug/UI screenshots — drop, reference inline, discard |
+| `.apsolut/files/`          | keep dir   | tracked folder so collaborators see it exists             |
+| `.apsolut/files/*`         | ignore     | PDFs, audio, exports — most are throwaway                 |
+
+If a binary matters long-term (evidence for a fire entry, a signed contract PDF, a design export referenced from `decisions/`), force-add it with `git add -f path/to/file`.
+
+## Legacy: top-level `artifacts/`
+
+Older versions of this scaffold created `project/artifacts/` at the project root for binaries. That has been folded into `.apsolut/files/`. If you already have a project-root `artifacts/`, it still works — but new projects shouldn't get one. Move contents into `.apsolut/files/` when convenient.

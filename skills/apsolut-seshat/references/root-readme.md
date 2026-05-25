@@ -7,9 +7,9 @@
 ## Project layout
 
 - [`.apsolut/`](.apsolut/) — project brain (see `.apsolut/README.md`)
-  - `.apsolut/screenshots/` — drop zone for bug/UI screenshots referenced inline in conversation (folder tracked, contents gitignored)
+  - `.apsolut/screenshots/` — hot drop zone for bug/UI screenshots referenced inline in conversation (folder tracked, contents gitignored)
+  - `.apsolut/files/` — cold storage for PDFs, audio, exports, anything else binary (folder tracked, contents gitignored; add subfolders like `pdfs/`, `docs/` on demand)
 - `.claude/` — Claude Code config
-- `artifacts/` — PDFs, audio, exports (binaries, mostly gitignored)
 
 ## Getting started
 
