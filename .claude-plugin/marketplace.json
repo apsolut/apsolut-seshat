@@ -6,7 +6,10 @@
   "plugins": [
     {
       "name": "apsolut-seshat",
-      "source": ".",
+      "source": {
+        "source": "github",
+        "repo": "apsolut/apsolut-seshat"
+      },
       "description": "The .apsolut/ convention — a markdown vault for project notes, decisions, ops, and fires."
     }
   ]
