@@ -1,0 +1,13 @@
+{
+  "name": "apsolut-seshat",
+  "owner": {
+    "name": "apsolut"
+  },
+  "plugins": [
+    {
+      "name": "apsolut-seshat",
+      "source": ".",
+      "description": "The .apsolut/ convention — a markdown vault for project notes, decisions, ops, and fires."
+    }
+  ]
+}

@@ -9,10 +9,11 @@ Works on weekend projects, scales to teams.
 
 ## Get started
 
-Install as a Claude Code plugin:
+Install as a Claude Code plugin (two steps — add the repo as a marketplace, then install):
 
 ```bash
-/plugin install apsolut-seshat@apsolut/apsolut-seshat
+/plugin marketplace add apsolut/apsolut-seshat
+/plugin install apsolut-seshat@apsolut-seshat
 ```
 
 Then in any project:
