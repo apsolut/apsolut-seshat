@@ -22,6 +22,7 @@ Then in any project:
 /apsolut-seshat           # picks a profile interactively
 /apsolut-seshat bare      # 3 files at .apsolut/ root, no folders
 /apsolut-seshat standard  # 6 folders, the default for active projects
+/apsolut-seshat davinci   # parallel track: 6 numbered folders for solo creative/research work
 ```
 
 `/maintain` scans and fixes broken `[[wiki-links]]` across the vault.
@@ -38,8 +39,11 @@ The vault scales with the project. Start small, add folders as content grows.
 | **minimal**  | folders: `tasks/`, `decisions/`, `fires/`                                                                                                      | Promote from bare when any one file > ~10 entries                  |
 | **standard** *(default)* | + `notes/`, `docs/`, `services/`, `ops/`                                                                                          | Most active projects                                               |
 | **full**     | + split `notes/` → `inbox/` + `explore/` + `blueprints/`; split `ops/` → `guides/` + `runbooks/` + `rules/`; add inbox subfolders              | Team project with planning ceremonies + ongoing ops                |
+| **davinci**  | 6 numbered folders: `01-thinking/`, `02-ideas/`, `03-plan/`, `04-files/`, `05-decisions/`, `06-knowledge/`. No fires, no binary drop zones, markdown-only | Solo creative or research work — notebook/sketchbook mindset       |
 
 Promote bare → minimal → standard → full as the project grows. Splitting is mechanical: take the one file, slice by frontmatter, write the slices into folders.
+
+**davinci is a parallel track**, not on the promotion path. Pick it when you want flow-state notebook structure (thinking → ideas → plan → decisions) instead of the operations-friendly bare→full layout. davinci is markdown-only — no `screenshots/` or `files/` binary drop zones, no `fires/` log.
 
 The folder set shown below is the **standard** profile.
 

@@ -1,7 +1,7 @@
 ---
 name: apsolut-seshat
-description: Scaffold the .apsolut/ vault into the current project. Pick a profile (bare/minimal/standard/full), create the files + folders + CLAUDE.md + artifacts/. Idempotent — audits and reports gaps if .apsolut/ already exists.
-argument-hint: [bare|minimal|standard|full]
+description: Scaffold the .apsolut/ vault into the current project. Pick a profile (bare/minimal/standard/full/davinci), create the files + folders + CLAUDE.md + artifacts/. Idempotent — audits and reports gaps if .apsolut/ already exists.
+argument-hint: [bare|minimal|standard|full|davinci]
 ---
 
 # apsolut-seshat
@@ -12,7 +12,7 @@ Scaffold the `.apsolut/` vault for any project, sized by profile.
 
 ## Trigger
 
-User invokes `/apsolut-seshat` (optionally with a profile: `/apsolut-seshat bare`, `minimal`, `standard`, `full`).
+User invokes `/apsolut-seshat` (optionally with a profile: `/apsolut-seshat bare`, `minimal`, `standard`, `full`, `davinci`).
 
 ## Profiles
 
@@ -22,8 +22,9 @@ User invokes `/apsolut-seshat` (optionally with a profile: `/apsolut-seshat bare
 | **minimal**  | folders: `tasks/`, `decisions/`, `fires/`                                                                                                                            | Promote from bare when any one file > ~10 entries         |
 | **standard** *(default)* | minimal + `notes/`, `docs/`, `services/`, `ops/`                                                                                                       | Most active projects                                      |
 | **full**     | standard + split `notes/` → `inbox/`+`explore/`+`blueprints/`, split `ops/` → `guides/`+`runbooks/`+`rules/`, inbox subfolders (bookmarks, bugs, feedback, ideas, meetings, voice) | Team project with planning ceremonies + ongoing ops       |
+| **davinci**  | 6 numbered folders: `01-thinking/`, `02-ideas/`, `03-plan/`, `04-files/`, `05-decisions/`, `06-knowledge/`. No fires, no binary drop zones, markdown-only | Solo creative or research work (notebook/sketchbook mindset) |
 
-All profiles also create `artifacts/` at project root (sibling to `.apsolut/`).
+davinci is a parallel track, not on the bare→full promotion path. The bare→full track creates `screenshots/` and `files/` binary drop zones; davinci does not.
 
 See `references/profiles.md` for the canonical manifest.
 
@@ -81,9 +82,17 @@ Confirm with user. Then ask:
 - Create `.apsolut/screenshots/.gitkeep` and `.apsolut/files/.gitkeep` (see [Step 3b](#step-3b--binary-drop-zones-all-profiles))
 - **full only:** create the 6 inbox subfolders (bookmarks, bugs, feedback, ideas, meetings, voice) — each gets a `.gitkeep` and re-uses `inbox-template.md`
 
-### Step 3b — Binary drop zones (all profiles)
+**davinci profile:**
+- Create `.apsolut/` directory
+- Create 6 numbered folders: `01-thinking/`, `02-ideas/`, `03-plan/`, `04-files/`, `05-decisions/`, `06-knowledge/`
+- For each folder, copy the matching `references/templates/davinci-<NN-name>.md` → `<folder>/000-template.md`
+- **Do not** create `screenshots/` or `files/` binary drop zones — davinci is markdown-only
+- **Do not** create `fires/` — davinci has no incident track
+- Skip the gitignore additions for `screenshots/`/`files/` in Step 5 when profile is davinci
 
-Every profile gets two binary drop zones inside `.apsolut/`:
+### Step 3b — Binary drop zones (bare/minimal/standard/full only — skip for davinci)
+
+The bare→full profiles all get two binary drop zones inside `.apsolut/`. davinci skips this step entirely.
 
 - **`screenshots/`** — hot path. User drops bug/UI screenshots and references them inline in conversation (e.g. "look at .apsolut/screenshots/login-broken.png").
 - **`files/`** — cold storage. PDFs, audio, exports, anything else binary. No preset subfolders — user creates `pdfs/`, `docs/`, `audio/`, etc. on demand.
@@ -96,7 +105,9 @@ The old top-level `project/artifacts/` folder is no longer created. Binaries liv
 
 ### Step 5 — Update `.gitignore`
 
-If `.gitignore` doesn't exist, create it. Append (if not already present):
+**Skip this step for davinci** — davinci has no binary drop zones to gitignore.
+
+For bare/minimal/standard/full: if `.gitignore` doesn't exist, create it. Append (if not already present):
 
 ```
 # apsolut: keep the drop-zone folders, ignore their contents
@@ -127,7 +138,7 @@ If exists, skip.
 ```
 ## apsolut-seshat complete
 
-Profile: <bare|minimal|standard|full>
+Profile: <bare|minimal|standard|full|davinci>
 
 ### Created
 - list of files/dirs
@@ -138,8 +149,9 @@ Profile: <bare|minimal|standard|full>
 ### Next steps
 - bare:     append your first task in .apsolut/TASKS.md
 - minimal+: add your first task in .apsolut/tasks/next/001-<name>.md
-- Log near-misses in fires — they're tomorrow's outages
-- Promote to next profile when files grow: `/apsolut-seshat <next-profile>`
+- davinci:  start in .apsolut/01-thinking/001-<name>.md and let it flow
+- Log near-misses in fires — they're tomorrow's outages (bare→full only)
+- Promote to next profile when files grow: `/apsolut-seshat <next-profile>` (bare→full track only; davinci is standalone)
 ```
 
 ## Audit mode (when `.apsolut/` already exists)
@@ -149,7 +161,7 @@ Compare existing layout against the chosen profile. Report:
 - Missing for this profile (offer to add)
 - Present but not in this profile (likely from a richer profile — leave them)
 - Missing `000-template.md` in any present folder (offer to add)
-- Missing `.apsolut/screenshots/` or `.apsolut/files/` (offer to add — these are required in all profiles now)
+- Missing `.apsolut/screenshots/` or `.apsolut/files/` (offer to add — required for bare/minimal/standard/full; **skip this check for davinci**, which has no binary drop zones)
 - Legacy `project/artifacts/` at project root (note: convention moved binaries to `.apsolut/files/`. Suggest moving contents — don't auto-move, may break tooling that points at the old path)
 
 Ask user before adding. **Never delete.**

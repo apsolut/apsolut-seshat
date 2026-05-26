@@ -84,6 +84,33 @@ For team projects with planning ceremonies and ongoing ops. Splits the merged fo
 └── files/.gitkeep
 ```
 
+## davinci *(alternate track)*
+
+A different mental model from bare→full. The notebook/sketchbook profile — for solo creative or research work where thought flows from raw capture into structured plans and decisions. Standalone, not on the promotion path.
+
+```
+.apsolut/
+├── 01-thinking/000-template.md     # raw capture, stream of consciousness
+├── 02-ideas/000-template.md        # exploration, options, comparisons
+├── 03-plan/000-template.md         # blueprints, broken-down plans
+├── 04-files/000-template.md        # markdown library — excerpts, transcripts, snippets
+├── 05-decisions/000-template.md    # locked-in decisions and rationale
+└── 06-knowledge/000-template.md    # reference: concepts, glossary, learned material
+```
+
+Differences from the bare→full track:
+- **No fires/** — davinci is for creative/research work, not operations
+- **No screenshots/ or files/ binary drop zones** — davinci is markdown-only; paste excerpts into `04-files/` instead
+- **Numbered folder prefixes** force a reading order: thinking → ideas → plan
+- **File naming inside folders is the same** `001-kebab-case.md` convention as other profiles
+
+Flow:
+```
+01-thinking ──promote──> 02-ideas ──commit──> 03-plan
+                                  └─lock──> 05-decisions
+04-files + 06-knowledge are referenced from anywhere
+```
+
 ## All profiles also create
 
 ```
@@ -107,6 +134,10 @@ Both folders are tracked in git; contents are gitignored. `git add -f` the keepe
 bare ──split files into folders──> minimal
 minimal ──add notes/docs/services/ops──> standard
 standard ──split notes/ + ops/ into 6──> full
+
+davinci ──standalone, not on the bare→full path──
 ```
 
 Splitting is mechanical: grep entries by frontmatter, write each slice into a new folder file.
+
+davinci is a parallel track. Pick it for solo creative/research work; pick bare→full for projects that need ops, fires, and binary artifacts.
