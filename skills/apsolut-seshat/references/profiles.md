@@ -93,40 +93,43 @@ A different mental model from bare→full. The notebook/sketchbook profile — f
 ├── 01-thinking/000-template.md     # raw capture, stream of consciousness
 ├── 02-ideas/000-template.md        # exploration, options, comparisons
 ├── 03-plan/000-template.md         # blueprints, broken-down plans
-├── 04-files/000-template.md        # markdown library — excerpts, transcripts, snippets
+├── 04-library/000-template.md      # markdown reading-room — excerpts, transcripts, snippets
 ├── 05-decisions/000-template.md    # locked-in decisions and rationale
-└── 06-knowledge/000-template.md    # reference: concepts, glossary, learned material
+├── 06-knowledge/000-template.md    # reference: concepts, glossary, learned material
+├── 07-files/000-template.md        # cold binaries: PDFs, audio, exports — subfolders on demand
+└── 08-screenshots/000-template.md  # hot binaries: UI/bug/reference images
 ```
 
 Differences from the bare→full track:
 - **No fires/** — davinci is for creative/research work, not operations
-- **No screenshots/ or files/ binary drop zones** — davinci is markdown-only; paste excerpts into `04-files/` instead
 - **Numbered folder prefixes** force a reading order: thinking → ideas → plan
+- **`04-library/` is markdown only** — excerpts, transcripts, snippets you paste in
+- **Binaries live in numbered folders, not the shared un-numbered zones** — `07-files/` (PDFs, audio, exports) and `08-screenshots/` (images), linked from `04-library/` or anywhere. This is a deliberate divergence: bare→full use un-numbered `screenshots/`+`files/`, but davinci keeps everything numbered so the vault stays an all-numbered notebook. `07-files/`/`08-screenshots/` contents are gitignored (the `000-template.md` stays tracked)
 - **File naming inside folders is the same** `001-kebab-case.md` convention as other profiles
 
 Flow:
 ```
 01-thinking ──promote──> 02-ideas ──commit──> 03-plan
                                   └─lock──> 05-decisions
-04-files + 06-knowledge are referenced from anywhere
+04-library + 06-knowledge + 07-files + 08-screenshots are referenced from anywhere
 ```
 
 ## All profiles also create
 
 ```
 project/
-├── .apsolut/       (see above — always includes screenshots/ and files/)
+├── .apsolut/       (see above — binary drop zones vary by track, see below)
 ├── README.md       (if missing)
 ├── CLAUDE.md       (if missing)
 └── .gitignore      (created or appended)
 ```
 
-`.apsolut/screenshots/` and `.apsolut/files/` are the binary exceptions inside the otherwise markdown-only `.apsolut/` vault:
+Every profile gets binary drop zones inside the otherwise markdown-only `.apsolut/` vault — but **where** depends on the track:
 
-- **`screenshots/`** — hot path. Drop bug/UI screenshots, reference them inline in conversation.
-- **`files/`** — cold storage. PDFs, audio, exports, anything else. User adds subfolders (`pdfs/`, `docs/`, `audio/`) on demand.
+- **bare→full** use two un-numbered folders: `.apsolut/screenshots/` (hot path — bug/UI screenshots, referenced inline) and `.apsolut/files/` (cold storage — PDFs, audio, exports; user adds subfolders like `pdfs/`, `audio/` on demand).
+- **davinci** keeps it numbered instead: `.apsolut/08-screenshots/` (hot) and `.apsolut/07-files/` (cold) — same roles, numbered to fit the notebook layout.
 
-Both folders are tracked in git; contents are gitignored. `git add -f` the keepers. **No top-level `artifacts/` is created** — that older convention was folded into `.apsolut/files/`.
+In both cases the folders are tracked in git, contents are gitignored, and you `git add -f` the keepers. **No top-level `artifacts/` is created** — that older convention was folded into the cold-storage folder.
 
 ## Promotion path
 
@@ -140,4 +143,4 @@ davinci ──standalone, not on the bare→full path──
 
 Splitting is mechanical: grep entries by frontmatter, write each slice into a new folder file.
 
-davinci is a parallel track. Pick it for solo creative/research work; pick bare→full for projects that need ops, fires, and binary artifacts.
+davinci is a parallel track. Pick it for solo creative/research work; pick bare→full for projects that need ops and fires. Both tracks support binaries — bare→full via un-numbered `screenshots/`+`files/`, davinci via numbered `07-files/`+`08-screenshots/`.

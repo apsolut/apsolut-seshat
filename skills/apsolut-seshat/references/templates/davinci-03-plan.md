@@ -23,7 +23,7 @@ from: [[02-ideas/]]
 
 ## references
 
-- [[04-files/]]
+- [[04-library/]]
 - [[06-knowledge/]]
 - [[05-decisions/]]
 

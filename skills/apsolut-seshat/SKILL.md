@@ -1,6 +1,6 @@
 ---
 name: apsolut-seshat
-description: Scaffold the .apsolut/ vault into the current project. Pick a profile (bare/minimal/standard/full/davinci), create the files + folders + CLAUDE.md + artifacts/. Idempotent — audits and reports gaps if .apsolut/ already exists.
+description: Scaffold the .apsolut/ vault into the current project. Pick a profile (bare/minimal/standard/full/davinci), create the files + folders + CLAUDE.md + binary drop zones. Idempotent — audits and reports gaps if .apsolut/ already exists.
 argument-hint: [bare|minimal|standard|full|davinci]
 ---
 
@@ -22,9 +22,9 @@ User invokes `/apsolut-seshat` (optionally with a profile: `/apsolut-seshat bare
 | **minimal**  | folders: `tasks/`, `decisions/`, `fires/`                                                                                                                            | Promote from bare when any one file > ~10 entries         |
 | **standard** *(default)* | minimal + `notes/`, `docs/`, `services/`, `ops/`                                                                                                       | Most active projects                                      |
 | **full**     | standard + split `notes/` → `inbox/`+`explore/`+`blueprints/`, split `ops/` → `guides/`+`runbooks/`+`rules/`, inbox subfolders (bookmarks, bugs, feedback, ideas, meetings, voice) | Team project with planning ceremonies + ongoing ops       |
-| **davinci**  | 6 numbered folders: `01-thinking/`, `02-ideas/`, `03-plan/`, `04-files/`, `05-decisions/`, `06-knowledge/`. No fires, no binary drop zones, markdown-only | Solo creative or research work (notebook/sketchbook mindset) |
+| **davinci**  | 8 numbered folders: `01-thinking/` … `06-knowledge/`, plus `07-files/` + `08-screenshots/` for binaries. No fires. No un-numbered drop zones | Solo creative or research work (notebook/sketchbook mindset) |
 
-davinci is a parallel track, not on the bare→full promotion path. The bare→full track creates `screenshots/` and `files/` binary drop zones; davinci does not.
+davinci is a parallel track, not on the bare→full promotion path. It has no `fires/`, and instead of the shared un-numbered `screenshots/`+`files/` zones it keeps binaries in its own numbered folders — `07-files/` (cold) and `08-screenshots/` (hot) — so the vault stays an all-numbered notebook.
 
 See `references/profiles.md` for the canonical manifest.
 
@@ -84,15 +84,15 @@ Confirm with user. Then ask:
 
 **davinci profile:**
 - Create `.apsolut/` directory
-- Create 6 numbered folders: `01-thinking/`, `02-ideas/`, `03-plan/`, `04-files/`, `05-decisions/`, `06-knowledge/`
-- For each folder, copy the matching `references/templates/davinci-<NN-name>.md` → `<folder>/000-template.md`
-- **Do not** create `screenshots/` or `files/` binary drop zones — davinci is markdown-only
+- Create 8 numbered folders: `01-thinking/`, `02-ideas/`, `03-plan/`, `04-library/`, `05-decisions/`, `06-knowledge/`, `07-files/`, `08-screenshots/`
+- For each folder, copy the matching `references/templates/davinci-<NN-name>.md` → `<folder>/000-template.md` (e.g. `04-library/` uses `davinci-04-library.md`, `07-files/` uses `davinci-07-files.md`, `08-screenshots/` uses `davinci-08-screenshots.md`)
+- **Do not** create the un-numbered `screenshots/`/`files/` drop zones — davinci keeps binaries in numbered `07-files/`+`08-screenshots/` instead (Step 3b is skipped for davinci)
 - **Do not** create `fires/` — davinci has no incident track
-- Skip the gitignore additions for `screenshots/`/`files/` in Step 5 when profile is davinci
+- Apply the davinci gitignore block in [Step 5](#step-5--update-gitignore)
 
 ### Step 3b — Binary drop zones (bare/minimal/standard/full only — skip for davinci)
 
-The bare→full profiles all get two binary drop zones inside `.apsolut/`. davinci skips this step entirely.
+The bare→full profiles get two un-numbered binary drop zones inside `.apsolut/`. davinci skips this step — it uses the numbered `07-files/`+`08-screenshots/` folders created in the davinci block above.
 
 - **`screenshots/`** — hot path. User drops bug/UI screenshots and references them inline in conversation (e.g. "look at .apsolut/screenshots/login-broken.png").
 - **`files/`** — cold storage. PDFs, audio, exports, anything else binary. No preset subfolders — user creates `pdfs/`, `docs/`, `audio/`, etc. on demand.
@@ -101,13 +101,13 @@ Both folders are tracked in git via `.gitkeep`; contents are gitignored — see 
 
 ### Step 4 — (removed)
 
-The old top-level `project/artifacts/` folder is no longer created. Binaries live inside `.apsolut/` (see Step 3b). If audit mode detects a legacy `project/artifacts/`, tell the user it still works but suggest moving its contents into `.apsolut/files/` (don't auto-move — they may have tooling that points at the old path).
+The old top-level `project/artifacts/` folder is no longer created. Binaries live inside `.apsolut/` (bare→full: see Step 3b; davinci: `07-files/`+`08-screenshots/`). If audit mode detects a legacy `project/artifacts/`, tell the user it still works but suggest moving its contents into the cold-storage folder (`.apsolut/files/` for bare→full, `.apsolut/07-files/` for davinci) — don't auto-move, they may have tooling that points at the old path.
 
 ### Step 5 — Update `.gitignore`
 
-**Skip this step for davinci** — davinci has no binary drop zones to gitignore.
+If `.gitignore` doesn't exist, create it. Append the block for the chosen track (if not already present):
 
-For bare/minimal/standard/full: if `.gitignore` doesn't exist, create it. Append (if not already present):
+**bare/minimal/standard/full:**
 
 ```
 # apsolut: keep the drop-zone folders, ignore their contents
@@ -117,13 +117,25 @@ For bare/minimal/standard/full: if `.gitignore` doesn't exist, create it. Append
 !.apsolut/files/.gitkeep
 ```
 
-Both drop zones are ephemeral by default. If a specific screenshot or file matters long-term (e.g. evidence for a fire entry, a signed contract PDF), force-add it with `git add -f`.
+**davinci** (numbered binary folders; keep each `000-template.md`):
+
+```
+# apsolut (davinci): keep the binary folders + their templates, ignore the binaries
+.apsolut/07-files/*
+!.apsolut/07-files/000-template.md
+.apsolut/08-screenshots/*
+!.apsolut/08-screenshots/000-template.md
+```
+
+Binary contents are ephemeral by default. If a specific screenshot or file matters long-term (e.g. evidence for a fire entry, a signed contract PDF), force-add it with `git add -f`.
 
 See `references/gitignore-snippet.md` for details.
 
 ### Step 6 — `CLAUDE.md`
 
 If missing, create from `references/claude-md.md`. Substitute template variables.
+
+**For davinci:** the template's Pointers section lists bare→full folder names (`tasks/next/`, `decisions/`, `ops/`, `fires/`…). Replace them with davinci's folders — `01-thinking/`, `02-ideas/`, `03-plan/`, `04-library/`, `05-decisions/`, `06-knowledge/`, and the binary zones `07-files/`/`08-screenshots/` — and drop the fires/ops/services/tasks pointers davinci doesn't have.
 
 If exists, skip. Note in the summary that user should verify it points to `.apsolut/`.
 
@@ -161,8 +173,9 @@ Compare existing layout against the chosen profile. Report:
 - Missing for this profile (offer to add)
 - Present but not in this profile (likely from a richer profile — leave them)
 - Missing `000-template.md` in any present folder (offer to add)
-- Missing `.apsolut/screenshots/` or `.apsolut/files/` (offer to add — required for bare/minimal/standard/full; **skip this check for davinci**, which has no binary drop zones)
-- Legacy `project/artifacts/` at project root (note: convention moved binaries to `.apsolut/files/`. Suggest moving contents — don't auto-move, may break tooling that points at the old path)
+- Missing binary drop zones (offer to add): for bare/minimal/standard/full → `.apsolut/screenshots/` + `.apsolut/files/`; for davinci → `.apsolut/07-files/` + `.apsolut/08-screenshots/`
+- Legacy `project/artifacts/` at project root (note: convention moved binaries into `.apsolut/` — `files/` for bare→full, `07-files/` for davinci. Suggest moving contents — don't auto-move, may break tooling that points at the old path)
+- **davinci with un-numbered `screenshots/`/`files/`** (an older davinci setup): do **not** flag or "fix" these — some davinci projects deliberately added them. Treat as "present but not in profile — leave them."
 
 Ask user before adding. **Never delete.**
 

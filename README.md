@@ -39,11 +39,11 @@ The vault scales with the project. Start small, add folders as content grows.
 | **minimal**  | folders: `tasks/`, `decisions/`, `fires/`                                                                                                      | Promote from bare when any one file > ~10 entries                  |
 | **standard** *(default)* | + `notes/`, `docs/`, `services/`, `ops/`                                                                                          | Most active projects                                               |
 | **full**     | + split `notes/` → `inbox/` + `explore/` + `blueprints/`; split `ops/` → `guides/` + `runbooks/` + `rules/`; add inbox subfolders              | Team project with planning ceremonies + ongoing ops                |
-| **davinci**  | 6 numbered folders: `01-thinking/`, `02-ideas/`, `03-plan/`, `04-files/`, `05-decisions/`, `06-knowledge/`. No fires, no binary drop zones, markdown-only | Solo creative or research work — notebook/sketchbook mindset       |
+| **davinci**  | 8 numbered folders: `01-thinking/` … `06-knowledge/`, plus `07-files/` + `08-screenshots/` for binaries. No fires, no un-numbered drop zones | Solo creative or research work — notebook/sketchbook mindset       |
 
 Promote bare → minimal → standard → full as the project grows. Splitting is mechanical: take the one file, slice by frontmatter, write the slices into folders.
 
-**davinci is a parallel track**, not on the promotion path. Pick it when you want flow-state notebook structure (thinking → ideas → plan → decisions) instead of the operations-friendly bare→full layout. davinci is markdown-only — no `screenshots/` or `files/` binary drop zones, no `fires/` log.
+**davinci is a parallel track**, not on the promotion path. Pick it when you want flow-state notebook structure (thinking → ideas → plan → decisions) instead of the operations-friendly bare→full layout. `04-library/` holds markdown excerpts; binaries get their own numbered folders — `07-files/` (PDFs, audio, exports) and `08-screenshots/` (images) — linked from anywhere. That's a deliberate divergence from bare→full's un-numbered `screenshots/`+`files/`: davinci keeps everything numbered so the vault reads as one ordered notebook. davinci has no `fires/` log.
 
 The folder set shown below is the **standard** profile.
 

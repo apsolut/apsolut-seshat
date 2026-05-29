@@ -17,9 +17,9 @@ kind: concept | reference | how-it-works | glossary | learned
 ## see also
 
 - [[05-decisions/]]
-- [[04-files/]]
+- [[04-library/]]
 - external: [url]
 
 <!--
-06-knowledge is durable reference material — the things you've learned and want to recall. Concepts, glossary entries, how-something-works writeups, API references. Different from 04-files (raw artifacts you didn't write) — this is the synthesized stuff you did write.
+06-knowledge is durable reference material — the things you've learned and want to recall. Concepts, glossary entries, how-something-works writeups, API references. Different from 04-library (raw material you didn't write) — this is the synthesized stuff you did write.
 -->
