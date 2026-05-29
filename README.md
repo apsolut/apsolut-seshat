@@ -43,7 +43,7 @@ The vault scales with the project. Start small, add folders as content grows.
 
 Promote bare → minimal → standard → full as the project grows. Splitting is mechanical: take the one file, slice by frontmatter, write the slices into folders.
 
-**davinci is a parallel track**, not on the promotion path. Pick it when you want flow-state notebook structure (thinking → ideas → plan → decisions) instead of the operations-friendly bare→full layout. `04-library/` holds markdown excerpts; binaries get their own numbered folders — `07-files/` (PDFs, audio, exports) and `08-screenshots/` (images) — linked from anywhere. That's a deliberate divergence from bare→full's un-numbered `screenshots/`+`files/`: davinci keeps everything numbered so the vault reads as one ordered notebook. davinci has no `fires/` log.
+**davinci is a parallel track**, not on the promotion path. Pick it when you want flow-state notebook structure (thinking → ideas → plan → decisions) instead of the operations-friendly bare→full layout. `04-library/` holds markdown excerpts; binaries get their own numbered folders — `07-files/` (PDFs, audio, exports) and `08-screenshots/` (images) — linked from anywhere. That's a deliberate divergence from bare→full's un-numbered `screenshots/`+`files/`: davinci keeps everything numbered so the vault reads as one ordered notebook. Each binary folder's `000-template.md` is a Claude-maintained manifest (the injection map — Claude reads the table to find one file rather than loading the folder), and `08-screenshots/` splits images by intent into `inspiration/` (keep) and `bugs/` (ephemeral); automated/test screenshots stay out of the vault. davinci has no `fires/` log.
 
 The folder set shown below is the **standard** profile.
 

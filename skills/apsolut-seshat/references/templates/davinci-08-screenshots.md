@@ -3,21 +3,22 @@ id: 08-screenshots/000
 date:
 tags:
 ---
-# 08-screenshots — hot image drop zone
+# 08-screenshots — image manifest + hot drop zone
 
-Drop **images you reference while working**: UI/bug screenshots, reference photos, sketches, diagrams, mockups. The hot path — quick to drop, quick to point at.
+Drop an image, then add a row to the manifest below so it's findable without loading the folder. Two intents, opposite lifecycles — keep them in subfolders (created on demand):
 
-## how to use
+- **`inspiration/`** — **keep.** Design/mood/reference shots, sketches, mockups you'll revisit. Force-add the keepers (`git add -f`).
+- **`bugs/`** — **ephemeral.** "Look at this broken thing." Stays gitignored; delete once the fix lands and prune its manifest row.
 
-- Drop the image, then reference it inline in conversation or from any note:
-  `look at 08-screenshots/login-broken.png` / `![mockup](08-screenshots/v2-mockup.png)`.
-- Subfolders optional — add `ui/`, `refs/`, `sketches/` only if it gets crowded.
-- Cold binaries (PDFs, audio, exports) go in [[07-files/]] instead.
+**Not here:** automated/Playwright/test screenshots. Those are regenerated test output — they belong in the repo's test-artifacts directory (gitignored there), never in the vault.
 
-## git
+## manifest
 
-Contents are gitignored — this `000-template.md` is the only tracked file by default. Force-add a keeper with `git add -f 08-screenshots/keeper.png`.
+| file | what it is | supports | keep? |
+|------|-----------|----------|-------|
+| `inspiration/hero-ref.png` | competitor hero layout I liked | [[02-ideas/003]] | keep |
+| `bugs/login-500.png` | 500 on submit, prod | [[03-plan/004]] | ephemeral |
 
 <!--
-08-screenshots is davinci's hot-path image zone — the numbered equivalent of the bare→full `.apsolut/screenshots/`. Kept numbered so the vault stays an all-numbered notebook.
+This manifest is the injection map. Claude reads THIS table to find the right image, then views only that one file — it never bulk-loads the folder, so a vault with 40 screenshots costs nothing until one is actually needed. The user drops the file; Claude adds the row when the file is mentioned. Prune `ephemeral` rows when the shot is deleted; keep `keep` rows after force-adding. Inspiration shots are pulled only for related design work; bug shots only when debugging that issue.
 -->

@@ -86,6 +86,7 @@ Confirm with user. Then ask:
 - Create `.apsolut/` directory
 - Create 8 numbered folders: `01-thinking/`, `02-ideas/`, `03-plan/`, `04-library/`, `05-decisions/`, `06-knowledge/`, `07-files/`, `08-screenshots/`
 - For each folder, copy the matching `references/templates/davinci-<NN-name>.md` → `<folder>/000-template.md` (e.g. `04-library/` uses `davinci-04-library.md`, `07-files/` uses `davinci-07-files.md`, `08-screenshots/` uses `davinci-08-screenshots.md`)
+- `07-files/` and `08-screenshots/` `000-template.md` are **manifests** — a markdown table the user/Claude fill in (one row per kept binary) so binaries are findable without loading the folder. `08-screenshots/` splits images by intent into `inspiration/` (keep) and `bugs/` (ephemeral) subfolders, created **on demand** (not pre-scaffolded). Automated/Playwright/test screenshots do **not** go here — they're regenerated test output.
 - **Do not** create the un-numbered `screenshots/`/`files/` drop zones — davinci keeps binaries in numbered `07-files/`+`08-screenshots/` instead (Step 3b is skipped for davinci)
 - **Do not** create `fires/` — davinci has no incident track
 - Apply the davinci gitignore block in [Step 5](#step-5--update-gitignore)
@@ -135,7 +136,7 @@ See `references/gitignore-snippet.md` for details.
 
 If missing, create from `references/claude-md.md`. Substitute template variables.
 
-**For davinci:** the template's Pointers section lists bare→full folder names (`tasks/next/`, `decisions/`, `ops/`, `fires/`…). Replace them with davinci's folders — `01-thinking/`, `02-ideas/`, `03-plan/`, `04-library/`, `05-decisions/`, `06-knowledge/`, and the binary zones `07-files/`/`08-screenshots/` — and drop the fires/ops/services/tasks pointers davinci doesn't have.
+**For davinci:** the template's Pointers section lists bare→full folder names (`tasks/next/`, `decisions/`, `ops/`, `fires/`…). Replace them with davinci's folders — `01-thinking/`, `02-ideas/`, `03-plan/`, `04-library/`, `05-decisions/`, `06-knowledge/`, and the binary zones `07-files/`/`08-screenshots/` — and drop the fires/ops/services/tasks pointers davinci doesn't have. Keep the binary-injection guidance: to find a binary, read the folder's `000-template.md` manifest (never bulk-load the folder); pull inspiration shots only for related design, bug shots only when debugging that issue.
 
 If exists, skip. Note in the summary that user should verify it points to `.apsolut/`.
 
@@ -176,6 +177,7 @@ Compare existing layout against the chosen profile. Report:
 - Missing binary drop zones (offer to add): for bare/minimal/standard/full → `.apsolut/screenshots/` + `.apsolut/files/`; for davinci → `.apsolut/07-files/` + `.apsolut/08-screenshots/`
 - Legacy `project/artifacts/` at project root (note: convention moved binaries into `.apsolut/` — `files/` for bare→full, `07-files/` for davinci. Suggest moving contents — don't auto-move, may break tooling that points at the old path)
 - **davinci with un-numbered `screenshots/`/`files/`** (an older davinci setup): do **not** flag or "fix" these — some davinci projects deliberately added them. Treat as "present but not in profile — leave them."
+- **davinci `07-files/`/`08-screenshots/` with a bare (pre-manifest) `000-template.md`**: offer to upgrade it to the manifest format (the table + `inspiration/`/`bugs/` intent convention). Don't force — existing binaries and rows are untouched.
 
 Ask user before adding. **Never delete.**
 

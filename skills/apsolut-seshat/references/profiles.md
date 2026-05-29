@@ -96,8 +96,8 @@ A different mental model from bare→full. The notebook/sketchbook profile — f
 ├── 04-library/000-template.md      # markdown reading-room — excerpts, transcripts, snippets
 ├── 05-decisions/000-template.md    # locked-in decisions and rationale
 ├── 06-knowledge/000-template.md    # reference: concepts, glossary, learned material
-├── 07-files/000-template.md        # cold binaries: PDFs, audio, exports — subfolders on demand
-└── 08-screenshots/000-template.md  # hot binaries: UI/bug/reference images
+├── 07-files/000-template.md        # cold binaries: PDFs, audio, exports — 000-template.md is a manifest; subfolders on demand
+└── 08-screenshots/000-template.md  # hot images — manifest + intent subfolders: inspiration/ (keep), bugs/ (ephemeral)
 ```
 
 Differences from the bare→full track:
@@ -105,6 +105,7 @@ Differences from the bare→full track:
 - **Numbered folder prefixes** force a reading order: thinking → ideas → plan
 - **`04-library/` is markdown only** — excerpts, transcripts, snippets you paste in
 - **Binaries live in numbered folders, not the shared un-numbered zones** — `07-files/` (PDFs, audio, exports) and `08-screenshots/` (images), linked from `04-library/` or anywhere. This is a deliberate divergence: bare→full use un-numbered `screenshots/`+`files/`, but davinci keeps everything numbered so the vault stays an all-numbered notebook. `07-files/`/`08-screenshots/` contents are gitignored (the `000-template.md` stays tracked)
+- **Each binary folder's `000-template.md` is a manifest** — a markdown table (one row per kept binary) that acts as the injection map: Claude reads the table to locate a file, then opens only that one instead of scanning the folder. `08-screenshots/` further splits by intent into `inspiration/` (keep) and `bugs/` (ephemeral) subfolders, created on demand. Automated/Playwright/test screenshots stay out of the vault entirely
 - **File naming inside folders is the same** `001-kebab-case.md` convention as other profiles
 
 Flow:
