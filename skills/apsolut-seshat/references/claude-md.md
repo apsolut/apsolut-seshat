@@ -28,3 +28,4 @@ Linter handles code style — don't enforce style in prompts.
 - Don't preload files — fetch only what the current task needs
 - Don't sprinkle binaries across `.apsolut/` markdown folders — they belong in `.apsolut/screenshots/` (hot path) or `.apsolut/files/` (cold storage); on davinci, that's `.apsolut/08-screenshots/` and `.apsolut/07-files/`
 - Don't bulk-load a binary folder. On davinci, read its `000-template.md` manifest to find the one file you need, then open only that file
+- Don't hoard dead alternatives. Once a decision records its "options considered" (the why-not), the rejected option files + their exploration notes, and any decision this one supersedes, are dead weight — propose deleting them and remove on the user's OK. The vault holds what's true now; git is the archive

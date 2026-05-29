@@ -91,6 +91,7 @@ Near misses are the most valuable — free lessons without the damage.
   - `.apsolut/files/` — cold storage. PDFs, audio, exports — add subfolders (`pdfs/`, `docs/`, `audio/`) on demand
   - Both folders are tracked in git; contents are gitignored. `git add -f` the keepers.
 - This vault is for things you write on purpose; if you also use apsolut-cortex, that's where Claude's auto-learned memory lives
+- **The vault is a garden, not an archive.** When a decision is reached, prune the alternatives it killed — and any decision it supersedes. The decision's "options considered" keeps the *why-not*, and git keeps the history, so nothing is truly lost. Claude proposes the deletions; you confirm. This keeps the live vault to what's true *now*
 - Use `[[wiki-links]]` for all cross-references (Obsidian graph + CC compatible)
 - Use `tags:` with `#hashtags` for grouping related files across folders
 

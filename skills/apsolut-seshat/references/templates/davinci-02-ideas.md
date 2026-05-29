@@ -36,4 +36,6 @@ seeds: [[01-thinking/]]
 
 <!--
 02-ideas is where thinking becomes structured exploration. Compare options, surface tradeoffs, identify what you don't yet know. Don't commit here — that's what 03-plan and 05-decisions are for.
+
+Once 03-plan or 05-decisions commits to one option, the rejected branches here have done their job — Claude will propose pruning them; the decision keeps the why-not, git keeps the history.
 -->
