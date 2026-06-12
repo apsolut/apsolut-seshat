@@ -25,13 +25,21 @@ Then in any project:
 /apsolut-seshat davinci   # parallel track: 6 numbered folders for solo creative/research work
 ```
 
-`/maintain` scans and fixes broken `[[wiki-links]]` across the vault.
+The vault comes with a command family — type `/apsolut` to see them all:
+
+| Command | What it does |
+|---------|-------------|
+| `/apsolut-seshat` | Scaffold the vault (profiles above) |
+| `/apsolut-next` | Pick up the next task: brief, branch, work it, move it through next → doing → done |
+| `/apsolut-plan` | Show the active plan with per-task progress; offer to slice unsliced steps into tasks |
+| `/apsolut-maintain` | Scan and fix broken `[[wiki-links]]`, orphans, stale tags, naming drift |
 
 Open `.apsolut/` as an Obsidian vault for graph view, templates, and search.
 
 ## Pick a size
 
 The vault scales with the project. Start small, add folders as content grows.
+See [EXAMPLE.md](EXAMPLE.md) for what each profile looks like in use — lived-in trees with realistic entries, plus the capture→task flow end to end.
 
 | Profile      | What you get                                                                                                                                  | When                                                              |
 |--------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
@@ -205,7 +213,7 @@ the task isn't self-contained enough. Rewrite it.
 
 ### Maintenance
 
-Run `/maintain` in Claude Code to scan and fix:
+Run `/apsolut-maintain` in Claude Code to scan and fix:
 - Broken `[[links]]` pointing to files that don't exist
 - Orphaned files with no incoming links
 - Plain text references that should be `[[wiki-links]]`
