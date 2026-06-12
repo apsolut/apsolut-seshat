@@ -68,7 +68,7 @@ For team projects with planning ceremonies and ongoing ops. Splits the merged fo
 │   ├── meetings/.gitkeep
 │   └── voice/.gitkeep
 ├── explore/000-template.md
-├── blueprints/000-template.md
+├── plans/000-template.md
 ├── tasks/
 │   ├── next/000-template.md
 │   ├── doing/000-template.md
@@ -92,7 +92,7 @@ A different mental model from bare→full. The notebook/sketchbook profile — f
 .apsolut/
 ├── 01-thinking/000-template.md     # raw capture, stream of consciousness
 ├── 02-ideas/000-template.md        # exploration, options, comparisons
-├── 03-plan/000-template.md         # blueprints, broken-down plans
+├── 03-plan/000-template.md         # committed plans, broken into steps
 ├── 04-library/000-template.md      # markdown reading-room — excerpts, transcripts, snippets
 ├── 05-decisions/000-template.md    # locked-in decisions and rationale
 ├── 06-knowledge/000-template.md    # reference: concepts, glossary, learned material

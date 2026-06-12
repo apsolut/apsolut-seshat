@@ -32,5 +32,5 @@ from: [[02-ideas/]]
 - [criteria — measurable if possible]
 
 <!--
-03-plan is the blueprint. Each plan should be small enough to execute in one focused session, or broken into nested plans. If you can't write a clear "done when", the plan isn't ready — go back to 02-ideas.
+03-plan is the commitment point. Each plan should be small enough to execute in one focused session, or broken into nested plans. If you can't write a clear "done when", the plan isn't ready — go back to 02-ideas.
 -->

@@ -1,7 +1,7 @@
 ---
 id: tasks/doing/000
 tags:
-from: "[[blueprints/001-example]]"
+from: "[[plans/001-example]]"
 size: xs | s | m | l
 branch: feat/000-short-name
 ---

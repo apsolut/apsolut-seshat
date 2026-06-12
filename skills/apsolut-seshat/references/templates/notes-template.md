@@ -2,7 +2,7 @@
 id: notes/000
 date:
 tags:
-stage: raw | exploring | blueprinted
+stage: raw | exploring | planned
 type: idea | bug | feedback | bookmark | meeting | voice | research | plan
 status: active | parked | promoted | dropped
 from:
@@ -23,7 +23,7 @@ from:
 ### option B: [name]
 - pros / cons / cost
 
-## blueprinted (fill in if stage advances)
+## planned (fill in if stage advances)
 
 [turn into a feature plan with steps + tasks list]
 
@@ -38,9 +38,9 @@ from:
 - why: [one line]
 
 <!--
-Stage progression: raw → exploring → blueprinted → tasks/
+Stage progression: raw → exploring → planned → tasks/
 
-raw         → capture without thinking — voice memo, idea, bug report, link
-exploring   → researching options, comparing, doing spikes
-blueprinted → committed to building it; broken into tasks
+raw       → capture without thinking — voice memo, idea, bug report, link
+exploring → researching options, comparing, doing spikes
+planned   → committed to building it; broken into tasks
 -->

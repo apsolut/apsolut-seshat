@@ -21,4 +21,4 @@ audience: devs | CC | new-hires | stakeholders
 ## related
 
 - [[decisions/]] — if a decision shaped this
-- [[blueprints/]] — if a feature plan references this
+- [[plans/]] — if a feature plan references this

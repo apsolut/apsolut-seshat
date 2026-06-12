@@ -1,7 +1,6 @@
 # Obsidian local preferences — workspace, graph view, plugins
 # (per README §Obsidian setup)
 .obsidian/
-
 # Claude Code local settings — user-specific, often sensitive
 .claude/settings.local.json
 

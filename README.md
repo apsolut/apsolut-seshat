@@ -38,7 +38,7 @@ The vault scales with the project. Start small, add folders as content grows.
 | **bare**     | 3 files at `.apsolut/` root: `TASKS.md`, `DECISIONS.md`, `FIRES.md` — no folders                                                              | Weekend project, < 10 entries total                                |
 | **minimal**  | folders: `tasks/`, `decisions/`, `fires/`                                                                                                      | Promote from bare when any one file > ~10 entries                  |
 | **standard** *(default)* | + `notes/`, `docs/`, `services/`, `ops/`                                                                                          | Most active projects                                               |
-| **full**     | + split `notes/` → `inbox/` + `explore/` + `blueprints/`; split `ops/` → `guides/` + `runbooks/` + `rules/`; add inbox subfolders              | Team project with planning ceremonies + ongoing ops                |
+| **full**     | + split `notes/` → `inbox/` + `explore/` + `plans/`; split `ops/` → `guides/` + `runbooks/` + `rules/`; add inbox subfolders                   | Team project with planning ceremonies + ongoing ops                |
 | **davinci**  | 8 numbered folders: `01-thinking/` … `06-knowledge/`, plus `07-files/` + `08-screenshots/` for binaries. No fires, no un-numbered drop zones | Solo creative or research work — notebook/sketchbook mindset       |
 
 Promote bare → minimal → standard → full as the project grows. Splitting is mechanical: take the one file, slice by frontmatter, write the slices into folders.
@@ -62,8 +62,10 @@ The folder set shown below is the **standard** profile.
 ## Flow
 
 ```
-notes (raw → exploring → blueprinted) → tasks → done
+notes (raw → exploring → planned) → tasks → done
 ```
+
+Plans live in `notes/` as `stage: planned`; they get their own `plans/` folder in the full profile (davinci: `03-plan/`). `tasks/` is the *output* of planning — self-contained specs sliced from a plan.
 
 ## Fire categories
 

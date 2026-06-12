@@ -21,7 +21,7 @@ User invokes `/apsolut-seshat` (optionally with a profile: `/apsolut-seshat bare
 | **bare**     | 3 files at `.apsolut/` root: `TASKS.md`, `DECISIONS.md`, `FIRES.md` — no folders                                                                                    | Weekend project, < 10 entries total                       |
 | **minimal**  | folders: `tasks/`, `decisions/`, `fires/`                                                                                                                            | Promote from bare when any one file > ~10 entries         |
 | **standard** *(default)* | minimal + `notes/`, `docs/`, `services/`, `ops/`                                                                                                       | Most active projects                                      |
-| **full**     | standard + split `notes/` → `inbox/`+`explore/`+`blueprints/`, split `ops/` → `guides/`+`runbooks/`+`rules/`, inbox subfolders (bookmarks, bugs, feedback, ideas, meetings, voice) | Team project with planning ceremonies + ongoing ops       |
+| **full**     | standard + split `notes/` → `inbox/`+`explore/`+`plans/`, split `ops/` → `guides/`+`runbooks/`+`rules/`, inbox subfolders (bookmarks, bugs, feedback, ideas, meetings, voice) | Team project with planning ceremonies + ongoing ops       |
 | **davinci**  | 8 numbered folders: `01-thinking/` … `06-knowledge/`, plus `07-files/` + `08-screenshots/` for binaries. No fires. No un-numbered drop zones | Solo creative or research work (notebook/sketchbook mindset) |
 
 davinci is a parallel track, not on the bare→full promotion path. It has no `fires/`, and instead of the shared un-numbered `screenshots/`+`files/` zones it keeps binaries in its own numbered folders — `07-files/` (cold) and `08-screenshots/` (hot) — so the vault stays an all-numbered notebook.
@@ -48,6 +48,7 @@ States:
 | `.apsolut/` exists matching current spec                                | **Audit mode** — compare against chosen profile, report gaps, ask before adding                                   |
 | `.apsolut/brain/` exists (very old convention)                          | **Stop and warn.** Tell user to rename to `.apsolut-old/` and re-run init. Don't merge automatically              |
 | `.apsolut/` has `inbox/` or `guides/` (pre-collapse layout)             | Tell user the spec moved on — they're on the old maximalist layout. Suggest splitting/merging by hand, or staying on it (it still works)             |
+| `.apsolut/` has `blueprints/` (pre-rename)                              | Folder was renamed to `plans/` (stage `blueprinted` → `planned`). Suggest `git mv blueprints plans` — don't auto-rename. Old name still works        |
 
 **Never overwrite existing files.**
 
