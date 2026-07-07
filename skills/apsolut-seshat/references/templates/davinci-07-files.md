@@ -9,7 +9,7 @@ This folder holds **binaries you want to keep but rarely open**: PDFs, audio (wa
 
 ## how to use
 
-- Organize with subfolders **on demand** — `pdfs/`, `audio/`, `exports/`, `data/`. None exist until you create them.
+- **Subfolders are fully supported and encouraged** — create whatever structure fits your project (`pdfs/`, `audio/`, `exports/2026/`, `design-assets/`, `client-foo/`, `data/`). None exist until you create them.
 - Don't dump live codebases here. For comparing/borrowing code, use a git branch or a sibling folder, not `07-files/`.
 - Reference a file from anywhere in the notebook with a link, e.g. from [[04-library/]] or [[05-decisions/]]:
   `see [the spec](07-files/pdfs/api-spec.pdf)`.
@@ -18,8 +18,8 @@ This folder holds **binaries you want to keep but rarely open**: PDFs, audio (wa
 
 | file | what it is | supports | keep? |
 |------|-----------|----------|-------|
-| `pdfs/api-spec.pdf` | vendor API spec v2 | [[03-plan/002]] | keep |
-| `audio/interview-01.mp3` | user interview raw | [[01-thinking/005]] | keep |
+| `pdfs/api-spec.pdf` | vendor API spec v2 | [[02-plan/002]] | keep |
+| `audio/interview-01.mp3` | user interview raw | [[01-ideas/005]] | keep |
 
 ## git
 

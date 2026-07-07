@@ -16,6 +16,7 @@ kind: concept | reference | how-it-works | glossary | learned
 
 ## see also
 
+- [[03-audits/]]
 - [[05-decisions/]]
 - [[04-library/]]
 - external: [url]

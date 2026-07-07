@@ -90,9 +90,9 @@ A different mental model from bare→full. The notebook/sketchbook profile — f
 
 ```
 .apsolut/
-├── 01-thinking/000-template.md     # raw capture, stream of consciousness
-├── 02-ideas/000-template.md        # exploration, options, comparisons
-├── 03-plan/000-template.md         # committed plans, broken into steps
+├── 01-ideas/000-template.md        # raw capture + structured exploration (combined thinking + options)
+├── 02-plan/000-template.md         # committed plans, broken into steps
+├── 03-audits/000-template.md       # long-term memory reviews, synthesis, rescans after changes
 ├── 04-library/000-template.md      # markdown reading-room — excerpts, transcripts, snippets
 ├── 05-decisions/000-template.md    # locked-in decisions and rationale
 ├── 06-knowledge/000-template.md    # reference: concepts, glossary, learned material
@@ -102,16 +102,17 @@ A different mental model from bare→full. The notebook/sketchbook profile — f
 
 Differences from the bare→full track:
 - **No fires/** — davinci is for creative/research work, not operations
-- **Numbered folder prefixes** force a reading order: thinking → ideas → plan
+- **Numbered folder prefixes** force a reading order: ideas → plan → audits (for memory reviews)
 - **`04-library/` is markdown only** — excerpts, transcripts, snippets you paste in
 - **Binaries live in numbered folders, not the shared un-numbered zones** — `07-files/` (PDFs, audio, exports) and `08-screenshots/` (images), linked from `04-library/` or anywhere. This is a deliberate divergence: bare→full use un-numbered `screenshots/`+`files/`, but davinci keeps everything numbered so the vault stays an all-numbered notebook. `07-files/`/`08-screenshots/` contents are gitignored (the `000-template.md` stays tracked)
-- **Each binary folder's `000-template.md` is a manifest** — a markdown table (one row per kept binary) that acts as the injection map: Claude reads the table to locate a file, then opens only that one instead of scanning the folder. `08-screenshots/` further splits by intent into `inspiration/` (keep) and `bugs/` (ephemeral) subfolders, created on demand. Automated/Playwright/test screenshots stay out of the vault entirely
+- **Each binary folder's `000-template.md` is a manifest** — a markdown table (one row per kept binary) that acts as the injection map: Claude reads the table to locate a file, then opens only that one instead of scanning the folder. `08-screenshots/` and `07-files/` fully support arbitrary subfolders (e.g. `bugs/`, `inspiration/`, `playwright/`, `debug/`, `pdfs/`, `client-foo/`, or anything the team invents). Subfolders are created on demand. Automated/Playwright/test screenshots stay out of the vault entirely (put them in the project's test-artifacts dir).
 - **File naming inside folders is the same** `001-kebab-case.md` convention as other profiles
 
 Flow:
 ```
-01-thinking ──promote──> 02-ideas ──commit──> 03-plan
-                                  └─lock──> 05-decisions
+01-ideas ──commit──> 02-plan
+               └─lock──> 05-decisions
+03-audits (reviews & synthesis after changes) feed into 05-decisions + 06-knowledge
 04-library + 06-knowledge + 07-files + 08-screenshots are referenced from anywhere
 ```
 
@@ -127,8 +128,8 @@ project/
 
 Every profile gets binary drop zones inside the otherwise markdown-only `.apsolut/` vault — but **where** depends on the track:
 
-- **bare→full** use two un-numbered folders: `.apsolut/screenshots/` (hot path — bug/UI screenshots, referenced inline) and `.apsolut/files/` (cold storage — PDFs, audio, exports; user adds subfolders like `pdfs/`, `audio/` on demand).
-- **davinci** keeps it numbered instead: `.apsolut/08-screenshots/` (hot) and `.apsolut/07-files/` (cold) — same roles, numbered to fit the notebook layout.
+- **bare→full** use two un-numbered folders: `.apsolut/screenshots/` (hot path — bug/UI/debug screenshots) and `.apsolut/files/` (cold storage — PDFs, audio, exports, etc.). **Subfolders are fully encouraged** in both (e.g. screenshots/bugs/, screenshots/playwright/, files/pdfs/, files/client-foo/). User adds them on demand.
+- **davinci** keeps it numbered instead: `.apsolut/08-screenshots/` (hot) and `.apsolut/07-files/` (cold) — same roles, numbered to fit the notebook layout. **Subfolders are fully supported** (bugs/, inspiration/, playwright/, debug/, client-specific, etc.).
 
 In both cases the folders are tracked in git, contents are gitignored, and you `git add -f` the keepers. **No top-level `artifacts/` is created** — that older convention was folded into the cold-storage folder.
 

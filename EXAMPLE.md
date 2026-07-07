@@ -123,12 +123,12 @@ A different project — solo research into generative sound art. All numbered, n
 
 ```
 .apsolut/
-├── 01-thinking/
+├── 01-ideas/
 │   └── 001-what-if-rain-data-drove-synths.md
-├── 02-ideas/
-│   └── 001-three-sonification-approaches.md
-├── 03-plan/
+├── 02-plan/
 │   └── 001-prototype-rain-to-midi.md         # status: active — steps, done-when
+├── 03-audits/
+│   └── 001-review-after-synth-refactor.md    # synthesis + review of plans
 ├── 04-library/
 │   └── 001-xenakis-formalized-music-excerpts.md
 ├── 05-decisions/

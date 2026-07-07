@@ -39,3 +39,5 @@ One file at a time. Never hold more than one file in context.
 Move to next file only after saving the current one.
 
 Priority order: broken links first, then plain text refs, then orphans.
+
+After fixes, suggest running an audit in 03-audits/ (davinci) or synthesis to review for slop, dead code, comprehension after agent work or changes. Use IDE side-by-side for review as agents can overcomplicate or leave issues.

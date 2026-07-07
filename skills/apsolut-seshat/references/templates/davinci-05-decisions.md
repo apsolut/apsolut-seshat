@@ -29,11 +29,12 @@ supersedes:
 
 ## sources
 
-- [[02-ideas/]]
+- [[01-ideas/]]
+- [[02-plan/]]
 - [[06-knowledge/]]
 
 <!--
 05-decisions is the locked-in record. Write the why, not just the what — future-you needs to understand the reasoning to know when the decision should be revisited. If you supersede a past decision, capture its gist in `supersedes:` and the context above, then prune the old one (git keeps it).
 
-Once this is locked, the options it rejected (in 02-ideas) and any decision it supersedes are dead weight — the "options considered" above already preserves the why-not, so Claude will propose pruning those files for you to confirm. The vault holds what's true now.
+Once this is locked, the options it rejected (in 01-ideas or 02-plan) and any decision it supersedes are dead weight — the "options considered" above already preserves the why-not, so Claude will propose pruning those files for you to confirm. The vault holds what's true now.
 -->

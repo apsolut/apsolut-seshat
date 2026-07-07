@@ -32,7 +32,11 @@
 | `.apsolut/07-files/000-template.md`, `.apsolut/08-screenshots/000-template.md` | keep | davinci's numbered binary folders — template stays tracked so the folder exists |
 | `.apsolut/07-files/*`, `.apsolut/08-screenshots/*` | ignore | davinci binaries — same throwaway-by-default rule as `files/`+`screenshots/` |
 
+Markdown folders (01-ideas/, 02-plan/, 03-audits/, etc.) are kept by default — use subfolders (active/, archive/, raw/) for volume without polluting git. |
+
 If a binary matters long-term (evidence for a fire entry, a signed contract PDF, a design export referenced from `decisions/`), force-add it with `git add -f path/to/file`.
+
+Use `03-audits/` (davinci) or synthesis for periodic reviews after changes — this helps keep the "live" vault clean without external tools.
 
 ## Legacy: top-level `artifacts/`
 

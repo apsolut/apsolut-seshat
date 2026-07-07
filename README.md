@@ -47,11 +47,11 @@ See [EXAMPLE.md](EXAMPLE.md) for what each profile looks like in use — lived-i
 | **minimal**  | folders: `tasks/`, `decisions/`, `fires/`                                                                                                      | Promote from bare when any one file > ~10 entries                  |
 | **standard** *(default)* | + `notes/`, `docs/`, `services/`, `ops/`                                                                                          | Most active projects                                               |
 | **full**     | + split `notes/` → `inbox/` + `explore/` + `plans/`; split `ops/` → `guides/` + `runbooks/` + `rules/`; add inbox subfolders                   | Team project with planning ceremonies + ongoing ops                |
-| **davinci**  | 8 numbered folders: `01-thinking/` … `06-knowledge/`, plus `07-files/` + `08-screenshots/` for binaries. No fires, no un-numbered drop zones | Solo creative or research work — notebook/sketchbook mindset       |
+| **davinci**  | 8 numbered folders: `01-ideas/` … `06-knowledge/`, plus `07-files/` + `08-screenshots/` for binaries. No fires, no un-numbered drop zones | Solo creative or research work — notebook/sketchbook mindset       |
 
 Promote bare → minimal → standard → full as the project grows. Splitting is mechanical: take the one file, slice by frontmatter, write the slices into folders.
 
-**davinci is a parallel track**, not on the promotion path. Pick it when you want flow-state notebook structure (thinking → ideas → plan → decisions) instead of the operations-friendly bare→full layout. `04-library/` holds markdown excerpts; binaries get their own numbered folders — `07-files/` (PDFs, audio, exports) and `08-screenshots/` (images) — linked from anywhere. That's a deliberate divergence from bare→full's un-numbered `screenshots/`+`files/`: davinci keeps everything numbered so the vault reads as one ordered notebook. Each binary folder's `000-template.md` is a Claude-maintained manifest (the injection map — Claude reads the table to find one file rather than loading the folder), and `08-screenshots/` splits images by intent into `inspiration/` (keep) and `bugs/` (ephemeral); automated/test screenshots stay out of the vault. davinci has no `fires/` log.
+**davinci is a parallel track**, not on the promotion path. Pick it when you want flow-state notebook structure (ideas → plan → audits → decisions) instead of the operations-friendly bare→full layout. `04-library/` holds markdown excerpts; binaries get their own numbered folders — `07-files/` (PDFs, audio, exports) and `08-screenshots/` (images) — linked from anywhere. That's a deliberate divergence from bare→full's un-numbered `screenshots/`+`files/`: davinci keeps everything numbered so the vault reads as one ordered notebook. Each binary folder's `000-template.md` is a Claude-maintained manifest (the injection map — Claude reads the table to find one file rather than loading the folder). `08-screenshots/` and `07-files/` support arbitrary subfolders (bugs/, playwright/, debug/, client-foo/, etc.); automated/test screenshots stay out of the vault. `03-audits/` is for periodic reviews and synthesis after changes — ideal for agentic workflows (review slop, dead code, comprehension debt in IDE + audits, per shifts like Karpathy's). davinci has no `fires/` log.
 
 The folder set shown below is the **standard** profile.
 
@@ -73,7 +73,7 @@ The folder set shown below is the **standard** profile.
 notes (raw → exploring → planned) → tasks → done
 ```
 
-Plans live in `notes/` as `stage: planned`; they get their own `plans/` folder in the full profile (davinci: `03-plan/`). `tasks/` is the *output* of planning — self-contained specs sliced from a plan.
+Plans live in `notes/` as `stage: planned`; they get their own `plans/` folder in the full profile (davinci: `02-plan/`). `tasks/` is the *output* of planning — self-contained specs sliced from a plan.
 
 ## Fire categories
 
@@ -97,8 +97,8 @@ Near misses are the most valuable — free lessons without the damage.
 - Files use `001-descriptive-name.md` numbering (per folder)
 - Each folder has `000-template.md` — read it before creating new entries
 - Markdown only — except two drop zones inside `.apsolut/`:
-  - `.apsolut/screenshots/` — hot path. Drop bug/UI screenshots, reference them inline in conversation
-  - `.apsolut/files/` — cold storage. PDFs, audio, exports — add subfolders (`pdfs/`, `docs/`, `audio/`) on demand
+  - `.apsolut/screenshots/` — hot path. Drop bug/UI/debug screenshots. **Subfolders are fully encouraged** (`bugs/`, `inspiration/`, `playwright/`, `debug/2026-07/`, `client-foo/`, or anything you invent). Reference inline. Force-add keepers.
+  - `.apsolut/files/` — cold storage. PDFs, audio, exports, design assets, etc. — **add any subfolders you want** on demand. Use the manifest (davinci) or links so nothing gets bulk-loaded.
   - Both folders are tracked in git; contents are gitignored. `git add -f` the keepers.
 - This vault is for things you write on purpose; if you also use apsolut-cortex, that's where Claude's auto-learned memory lives
 - **The vault is a garden, not an archive.** When a decision is reached, prune the alternatives it killed — and any decision it supersedes. The decision's "options considered" keeps the *why-not*, and git keeps the history, so nothing is truly lost. Claude proposes the deletions; you confirm. This keeps the live vault to what's true *now*
@@ -221,3 +221,19 @@ Run `/apsolut-maintain` in Claude Code to scan and fix:
 - Naming drift from the `001-kebab-case.md` convention
 
 The command works in 4 passes using grep — never loads all files at once.
+
+For agentic workflows (mostly agent + review in IDE, per shifts like Karpathy's): 
+- Write specs in `02-plan/` with clear "done when", verification steps (tests/criteria first), then let agents loop.
+- After changes (e.g. 10 commits or refactors), create/update an audit in `03-audits/` (davinci) or synthesis to review for slop (overcomplication, dead code), comprehension debt, and hygiene.
+- Leverage: give agents success criteria and watch them go; use our structure (plans as specs, audits for review) to stay in control.
+- Always review in IDE + our tools (`/apsolut-maintain`, audits). Combat slop and maintain long-term memory via `03-audits/`, `05-decisions/`, `06-knowledge/`.
+
+See the embedded Principal AI & Systems Architect role in the generated `CLAUDE.md` for full guidance on rigor, review, and modes.
+
+## AI Operating Role
+
+When working on this project or any project scaffolded with this boilerplate, the AI operates as the **Principal AI & Systems Architect (Unified Engine)**.
+
+The full role definition (pillars, archetypes, audit/generation modes, algorithmic rigor, structural UI, AEO) is embedded at the top of the generated `CLAUDE.md` (from the template in `references/claude-md.md`).
+
+This role takes precedence for all interactions with the codebase. Follow the operational modes: Audit & Optimization or Generation & Build, always preferring deterministic algorithmic solutions over LLM brute-force.

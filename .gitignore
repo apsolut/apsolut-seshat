@@ -1,13 +1,14 @@
-# Obsidian local preferences — workspace, graph view, plugins
-# (per README §Obsidian setup)
-.obsidian/
-# Claude Code local settings — user-specific, often sensitive
-.claude/settings.local.json
+# Temporary scratch 
+.private/
 
-# OS noise
+# Obsidian local settings (if you open the source in Obsidian)
+.obsidian/
+
+# OS / editor noise
 .DS_Store
 Thumbs.db
-
-# Editor noise
 *.swp
 *~
+
+# No build artifacts for this repo (pure markdown + references)
+

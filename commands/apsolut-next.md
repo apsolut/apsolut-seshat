@@ -7,7 +7,7 @@ Do NOT preload the vault. One task file is the entire briefing.
 
 - `.apsolut/tasks/next/` exists → **folder mode** (minimal/standard/full)
 - `.apsolut/TASKS.md` exists, no `tasks/` → **bare mode**
-- `.apsolut/03-plan/` exists → **davinci mode**
+- `.apsolut/02-plan/` exists → **davinci mode**
 - None of the above → tell the user to run `/apsolut-seshat` first. Stop.
 
 ## Pass 2: Pick the task
@@ -20,7 +20,7 @@ Do NOT preload the vault. One task file is the entire briefing.
 
 **bare mode:** read `TASKS.md`, pick the first unchecked item (or the `$ARGUMENTS` match).
 
-**davinci mode:** grep `03-plan/` frontmatter for `status: active`, open the newest match, pick its first unchecked step.
+**davinci mode:** grep `02-plan/` frontmatter for `status: active`, open the newest match, pick its first unchecked step.
 
 ## Pass 3: Brief
 
